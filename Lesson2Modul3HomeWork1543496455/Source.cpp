@@ -90,23 +90,99 @@ void Task5()
 
 void Task6()
 {
-	int onet, tent, sixtyt, trip=119;
+	int onet, tent, sixtyt, trip, csum;
+
+	printf("\n\nВведите кол-во поездок => ");
+	scanf_s("%d", &trip);
 
 	sixtyt = trip / 60;
 	tent = (trip - sixtyt * 60) / 10;
-	onet = trip - sixtyt * 60 - tent * 10;
-
+	onet = (trip - sixtyt * 60 - tent*10);
+	csum = sixtyt*440 + tent*125 + onet*15;
+	
 	printf("\n Для совершения %d поездок на метро по минимальной цене, необходимо приобрести: ", trip);
-	printf("\n - билетов на 60 поездок	- %d \n", sixtyt);
-	printf(" - билетов на 10 поездок	- %d \n", tent);
-	printf(" - билетов на 1	 поездку	- %d \n\n", onet);
+		
+	if ((csum) > (sixtyt+1)*440)
+	{
+		sixtyt = sixtyt + 1;
+		printf("\n - билетов на 60 поездок - %d шт", sixtyt);
+	}
+	else
+	{
+		printf("\n - билетов на 60 поездок - %d шт", sixtyt);
+	
 
+		if ((tent*125 + onet*15) > (tent+1)*125)
+		{
+			tent = tent + 1;
+			printf("\n - билетов на 10 поездок - %d шт", tent);
+		}
+		else
+		{
+			printf("\n - билетов на 10 поездок - %d шт", tent);
+			printf("\n - билетов на 1 поездку - %d шт", onet);
+		}
+	}
+	
+	printf("\n\n");
 }
 
 void Task7()
 {
-	int a;
+	int onet, fivet, tent, twentyt, sixtyt, trip, csum;
+
+	printf("\n\nВведите кол-во поездок => ");
+	scanf_s("%d", &trip);
+
+	sixtyt	= trip / 60;
+	twentyt = (trip - sixtyt * 60) / 20;
+	tent	= (trip - sixtyt * 60 - twentyt * 20) / 10;
+	fivet	= (trip - sixtyt * 60 - twentyt * 20 - tent * 10) / 5;
+	onet	= (trip - sixtyt * 60 - tent * 10);
+	csum	= sixtyt * 440 + twentyt * 230 + tent * 125 + fivet * 70 + onet * 15;
+
+	if ((csum) > (sixtyt + 1) * 440)
+	{
+		sixtyt = sixtyt + 1;
+		printf("\n	- билетов на 60 поездок	- %d шт", sixtyt);
+	}
+	else
+	{
+		printf("\n - билетов на 60 поездок - %d шт", sixtyt);
+
+
+		if ((twentyt * 230 + tent * 125) > (twentyt + 1) * 230)
+		{
+			twentyt = twentyt + 1;
+			printf("\n	- билетов на 20 поездок	- %d шт", twentyt);
+		}
+		else
+		{
+			if ((tent * 125 + fivet * 70) > (tent + 1) * 125)
+			{
+				tent = tent + 1;
+				printf("\n	- билетов на 10 поездок	- %d шт", tent);
+			}
+			else 
+			{
+				if ((fivet * 70 + onet * 15) > (fivet + 2) * 70)
+				{
+					fivet = fivet + 2;
+					printf("\n	- билетов на 5 поездок	- %d шт", fivet);
+				}
+				else
+				{
+					printf("\n	- билетов на 5 поездок	- %d шт", fivet);
+					printf("\n	- билетов на 1 поездку	- %d шт", onet);
+				}
+			}
+		}
+	}
+
+	printf("\n\n");
 }
+	
+
 
 
 
@@ -138,10 +214,12 @@ start:
 
 	printf("Вы хотите продолжить? 1/0 => ");
 	scanf_s("%d", &flag);
-
+	
 
 	if (flag == 1)
 		goto start;
+
+	printf("\n");
 
 	system("pause");
 
