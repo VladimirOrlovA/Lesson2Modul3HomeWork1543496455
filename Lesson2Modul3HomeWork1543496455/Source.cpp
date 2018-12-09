@@ -70,13 +70,10 @@ void Task5()
 {
 	int r;
 
-
-	do
-	{
 		srand(time(NULL));
 		r = 1 + rand() % 5;
 
-		if (r != 1 && r != 6) { printf("\n Получена оценка: %d \n", r); }
+		if (r != 1 && r != 6 || r == 2 && r == 3 || r == 4 || r == 5) { printf("\n Получена оценка: %d \n", r); }
 
 		switch (r)
 		{
@@ -88,12 +85,22 @@ void Task5()
 		default:
 			break;
 		}
-	} while (r < 6);
+	
 }
 
 void Task6()
 {
-	int a;
+	int onet, tent, sixtyt, trip=119;
+
+	sixtyt = trip / 60;
+	tent = (trip - sixtyt * 60) / 10;
+	onet = trip - sixtyt * 60 - tent * 10;
+
+	printf("\n Для совершения %d поездок на метро по минимальной цене, необходимо приобрести: ", trip);
+	printf("\n - билетов на 60 поездок	- %d \n", sixtyt);
+	printf(" - билетов на 10 поездок	- %d \n", tent);
+	printf(" - билетов на 1	 поездку	- %d \n\n", onet);
+
 }
 
 void Task7()
@@ -122,8 +129,8 @@ start:
 	case 3: {Task3(); } break;
 	case 4: {Task4(); } break;
 	case 5: {Task5(); } break;
-	case 6: {Task1(); } break;
-	case 7: {Task1(); } break;
+	case 6: {Task6(); } break;
+	case 7: {Task7(); } break;
 
 	default:
 		break;
