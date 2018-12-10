@@ -105,11 +105,11 @@ void Task6()
 	if ((csum) > (sixtyt+1)*440)
 	{
 		sixtyt = sixtyt + 1;
-		printf("\n - билетов на 60 поездок - %d шт", sixtyt);
+			printf("\n - билетов на 60 поездок - %d шт", sixtyt);
 	}
 	else
 	{
-		printf("\n - билетов на 60 поездок - %d шт", sixtyt);
+			printf("\n - билетов на 60 поездок - %d шт", sixtyt);
 	
 
 		if ((tent*125 + onet*15) > (tent+1)*125)
@@ -120,7 +120,7 @@ void Task6()
 		else
 		{
 			printf("\n - билетов на 10 поездок - %d шт", tent);
-			printf("\n - билетов на 1 поездку - %d шт", onet);
+			printf("\n - билетов на 1 поездку  - %d шт", onet);
 		}
 	}
 	
@@ -138,14 +138,14 @@ void Task7()  // В работе...
 	twentyt = (trip - sixtyt * 60) / 20;
 	tent	= (trip - sixtyt * 60 - twentyt * 20) / 10;
 	fivet	= (trip - sixtyt * 60 - twentyt * 20 - tent * 10) / 5;
-	onet	= (trip - sixtyt * 60 - tent * 10 - fivet * 5);
+	onet	= (trip - sixtyt * 60 - twentyt * 20 - tent * 10 - fivet * 5);
 	csum	= sixtyt * 440 + twentyt * 230 + tent * 125 + fivet * 70 + onet * 15;
 
-	printf("\n	- билетов на 60 поездок	- %d шт", sixtyt);
+	/*printf("\n	- билетов на 60 поездок	- %d шт", sixtyt);
 	printf("\n	- билетов на 20 поездок	- %d шт", twentyt);
 	printf("\n	- билетов на 10 поездок	- %d шт", tent);
 	printf("\n	- билетов на 5 поездок	- %d шт", fivet);
-	printf("\n	- билетов на 1 поездку	- %d шт\n", onet);
+	printf("\n	- билетов на 1 поездку	- %d шт\n", onet);*/
 
 
 	if ((csum) > (sixtyt + 1) * 440)
@@ -158,27 +158,35 @@ void Task7()  // В работе...
 		printf("\n	- билетов на 60 поездок - %d шт", sixtyt);
 
 
-		if ((twentyt * 230 + tent * 125) > (twentyt + 1) * 230)
+		if ((twentyt * 230 + tent * 125 + fivet * 70 + onet * 15) > (twentyt + 1) * 230)
 		{
 			twentyt = twentyt + 1;
 			printf("\n	- билетов на 20 поездок	- %d шт", twentyt);
 		}
 		else
 		{
-			if ((tent * 125 + fivet * 70 + onet * 15) > twentyt * 230)
+			if (twentyt != 0) { printf("\n	- билетов на 20 поездок	- %d шт", twentyt); }
+
+			if ((tent * 125 + fivet * 70 + onet * 15) > (tent + 1) * 125)
 			{
+				tent = tent + 1;
 				printf("\n	- билетов на 10 поездок	- %d шт", tent);
-				printf("\n	- билетов на 5 поездок	- %d шт", fivet);
 			}
 			else
 			{
+				if (tent != 0) { printf("\n	- билетов на 10 поездок	- %d шт", tent); }
+
 				if ((fivet * 70 + onet * 15) > (fivet + 1) * 70)
 				{
 					fivet = fivet + 1;
 					printf("\n	- билетов на 5 поездок	- %d шт", fivet);
 					printf("\n	- билетов на 1 поездку	- %d шт", onet);
 				}
-				else { printf("\n	- билетов на 1 поездку	- %d шт", onet); }
+				else 
+				{ 
+					if (fivet != 0) { printf("\n	- билетов на 5 поездок	- %d шт", fivet); }
+					if (onet != 0) {printf("\n	- билетов на 1 поездку	- %d шт", onet); }
+				}
 			}
 		}
 	}
