@@ -155,7 +155,7 @@ void Task7()  // В работе...
 	}
 	else
 	{
-		printf("\n	- билетов на 60 поездок - %d шт", sixtyt);
+		if (sixtyt != 0) {printf("\n	- билетов на 60 поездок - %d шт", sixtyt); }
 
 
 		if ((twentyt * 230 + tent * 125 + fivet * 70 + onet * 15) > (twentyt + 1) * 230)
@@ -220,8 +220,6 @@ start:
 	case 6: {Task6(); } break;
 	case 7: {Task7(); } break;
 
-	default:
-		break;
 	}
 
 	printf("Вы хотите продолжить? 1/0 => ");
